@@ -10,6 +10,10 @@
 
 # production
 /build
+/dist
+
+# public
+/public/index.desktop.js
 
 # misc
 .DS_Store
