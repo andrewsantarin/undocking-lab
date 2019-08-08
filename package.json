@@ -53,14 +53,14 @@
     "web:test": "react-scripts test",
     "web:eject": "react-scripts eject",
 
-    "desktop:compile": "tsc ./src/index.desktop.ts --outDir public",
     "desktop:start": "electron public/index.desktop.js",
+    "desktop:prebuild": "tsc ./src/index.desktop.ts --outDir public",
     "desktop:build": "electron-builder",
     "desktop:build-publish": "electron-builder --publish=always",
 
-    "desktop-web:start": "yarn desktop:compile && concurrently \"cross-env BROWSER=none yarn web:start\" \"wait-on http://localhost:3000 && yarn desktop:start\"",
-    "desktop-web:build": "yarn desktop:compile && yarn web:build && yarn desktop:build",
-    "desktop-web:build-publish": "yarn desktop:compile && yarn web:build && desktop:build-publish"
+    "desktop-web:start": "yarn desktop:prebuild && concurrently \"cross-env BROWSER=none yarn web:start\" \"wait-on http://localhost:3000 && yarn desktop:start\"",
+    "desktop-web:build": "yarn desktop:prebuild && yarn web:build && yarn desktop:build",
+    "desktop-web:build-publish": "yarn desktop:prebuild && yarn web:build && desktop:build-publish"
   },
   "eslintConfig": {
     "extends": "react-app"
