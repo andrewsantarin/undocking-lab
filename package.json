@@ -1,11 +1,11 @@
 {
-  "name": "redux-state-sync-example",
+  "name": "react-redux-persist-state-sync-example",
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
   "build": {
-    "appId": "com.example.ReduxStateSyncExample",
-    "productName": "Redux State Sync Example",
+    "appId": "com.example.ReactReduxPersistStateSyncExample",
+    "productName": "React Redux Persist State Sync Example",
     "copyright": "Copyright © 2019 Cezar Andrew Villegas Santarin",
     "files": [
       "build/**/*",
