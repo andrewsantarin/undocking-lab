@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@types/jest": "24.0.17",
+    "@types/lodash": "^4.14.136",
     "@types/node": "12.6.9",
     "@types/react": "16.8.24",
     "@types/react-dom": "16.8.5",
@@ -30,8 +31,10 @@
     "@types/redux-state-sync": "^2.0.0",
     "cross-env": "^5.2.0",
     "electron-is-dev": "^1.1.0",
+    "query-string": "^6.8.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-new-window": "^0.1.2",
     "react-redux": "^7.1.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
@@ -47,17 +50,14 @@
   },
   "scripts": {
     "project:cleanup": "cross-env rm -rf build dist",
-
     "web:start": "react-scripts start",
     "web:build": "react-scripts build",
     "web:test": "react-scripts test",
     "web:eject": "react-scripts eject",
-
     "desktop:start": "electron public/index.desktop.js",
     "desktop:prebuild": "tsc ./src/index.desktop.ts --outDir public",
     "desktop:build": "electron-builder",
     "desktop:build-publish": "electron-builder --publish=always",
-
     "desktop-web:start": "yarn desktop:prebuild && concurrently \"cross-env BROWSER=none yarn web:start\" \"wait-on http://localhost:3000 && yarn desktop:start\"",
     "desktop-web:build": "yarn desktop:prebuild && yarn web:build && yarn desktop:build",
     "desktop-web:build-publish": "yarn desktop:prebuild && yarn web:build && desktop:build-publish"
