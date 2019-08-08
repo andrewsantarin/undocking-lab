@@ -25,7 +25,9 @@ export type ValueState = {
 export type ValueProps = ValueStateProps & ValueDispatchProps & ValueOwnProps;
 
 const createNewWindow = () => {
-  window.open(window.location.href);
+  const { host, protocol, pathname } = window.location;
+  const { open } = window;
+  open(`${protocol}//${host}${pathname}?id=${Math.random()}`);
 };
 
 export class Value extends Component<ValueProps, ValueState> {
@@ -65,6 +67,7 @@ export class Value extends Component<ValueProps, ValueState> {
   render() {
     return (
       <div style={{ margin: 8 }}>
+        <div><label><code>current url:</code></label> {window.location.href}</div>
         <div><label><code>react state:</code></label> {this.state.value}</div>
         <div>
           <button onClick={this.handleReactIncrementValueClick}>+</button>
